@@ -3,22 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magic Word Party</title>
+    <title>Happy Monthsary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="container">
         <div id="prompt">
-            <h2>Enter the magic word:</h2>
-            <input type="text" id="input-word">
+            <h2>Enter the magic word</h2>
+            <input type="text" id="input-word" placeholder="Type here...">
             <button onclick="checkWord()">Submit</button>
         </div>
 
         <div id="party-mode" class="hidden">
-            <div class="love-message">I LOVE YOU!</div>
-            <div class="party-item heart"></div>
-            <div class="party-item confetti"></div>
-            <div class="party-item flowers"></div>
+            <div id="stars-container"></div>
+            <div class="love-message">
+                Happy Monthsary Babe!<br>
+                <span class="sorry">Sorry for forgetting...</span>
+            </div>
+            <div id="flowers-container"></div>
+            <div id="butterflies-container"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
             <div class="party-item cats"></div>
         </div>
     </div>
