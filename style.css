@@ -2,7 +2,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #3498db, #8e44ad);
+    background: linear-gradient(135deg, #1a2a6c, #2a4065);
     color: white;
     height: 100vh;
     overflow: hidden;
@@ -16,62 +16,73 @@ body {
 }
 
 #prompt {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 50px;
+    border-radius: 30px;
     text-align: center;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #prompt:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 #prompt h2 {
     margin-top: 0;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
 }
 
 #prompt input {
     margin: 20px 0;
-    padding: 10px 15px;
-    width: 200px;
+    padding: 15px 20px;
+    width: 250px;
     border: none;
     border-radius: 25px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
     font-size: 16px;
     transition: all 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 #prompt input:focus {
     outline: none;
-    background: rgba(255, 255, 255, 0.3);
-    width: 220px;
+    background: rgba(255, 255, 255, 0.2);
+    width: 270px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 #prompt input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 #prompt button {
-    padding: 10px 20px;
-    background-color: #2ecc71;
+    padding: 12px 30px;
+    background-color: #4a90e2;
     color: white;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
 }
 
 #prompt button:hover {
-    background-color: #27ae60;
-    transform: scale(1.05);
+    background-color: #3a7bd5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
 }
 
 .hidden {
