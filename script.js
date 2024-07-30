@@ -22,14 +22,9 @@ function addFlowersStarsAndButterflies() {
     const starsContainer = document.getElementById('stars-container');
     const butterfliesContainer = document.getElementById('butterflies-container');
     
+    // Add stars and butterflies
     for (let i = 0; i < 20; i++) {
         setTimeout(() => {
-            const flower = document.createElement('div');
-            flower.className = 'flower';
-            flower.style.left = Math.random() * 100 + '%';
-            flower.style.animationDelay = Math.random() * 2 + 's';
-            flowersContainer.appendChild(flower);
-
             const star = document.createElement('div');
             star.className = 'star';
             star.style.left = Math.random() * 100 + '%';
@@ -46,5 +41,41 @@ function addFlowersStarsAndButterflies() {
                 butterfliesContainer.appendChild(butterfly);
             }
         }, i * 100);
+    }
+
+    // Add mini flowers to create a field
+    const flowerCount = Math.ceil((window.innerWidth * 30) / 100); // Adjust density as needed
+    for (let i = 0; i < flowerCount; i++) {
+        const miniFlower = document.createElement('div');
+        miniFlower.className = 'mini-flower';
+        
+        // Randomize position within the container
+        miniFlower.style.left = Math.random() * 100 + '%';
+        miniFlower.style.bottom = Math.random() * 20 + '%';
+        
+        // Randomize size slightly
+        const scale = 0.8 + Math.random() * 0.4; // 0.8 to 1.2
+        miniFlower.style.transform = `scale(${scale})`;
+        
+        // Randomize animation delay
+        miniFlower.style.animationDelay = Math.random() * 2 + 's';
+
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        miniFlower.appendChild(petal);
+
+        const center = document.createElement('div');
+        center.className = 'center';
+        miniFlower.appendChild(center);
+
+        const stem = document.createElement('div');
+        stem.className = 'stem';
+        miniFlower.appendChild(stem);
+
+        const leaf = document.createElement('div');
+        leaf.className = 'leaf';
+        miniFlower.appendChild(leaf);
+
+        flowersContainer.appendChild(miniFlower);
     }
 }
