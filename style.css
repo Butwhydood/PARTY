@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #e0e0e0;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f, #ffecd2);
+    color: #4a4a4a;
     height: 100vh;
     overflow: hidden;
 }
@@ -16,30 +18,21 @@ body {
 }
 
 #prompt {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.7);
     padding: 40px;
     border-radius: 20px;
     text-align: center;
     backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 90%;
-}
-
-#prompt:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 #prompt h2 {
     margin-top: 0;
     font-weight: 600;
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #4a90e2;
+    font-size: 28px;
+    color: #ff6b6b;
     margin-bottom: 30px;
 }
 
@@ -47,50 +40,34 @@ body {
     margin: 20px 0;
     padding: 12px 20px;
     width: 100%;
-    border: none;
+    border: 2px solid #fcb69f;
     border-radius: 25px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #e0e0e0;
+    background: rgba(255, 255, 255, 0.8);
+    color: #4a4a4a;
     font-size: 16px;
-    transition: all 0.3s ease;
     box-sizing: border-box;
-}
-
-#prompt input:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.5);
-}
-
-#prompt input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
 }
 
 #prompt button {
     padding: 12px 30px;
-    background-color: #4a90e2;
+    background-color: #ff6b6b;
     color: white;
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
     width: 100%;
     margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
 
 #prompt button:hover {
-    background-color: #3a7bd5;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+    background-color: #ff8e8e;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 #party-mode {
@@ -99,8 +76,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    background: linear-gradient(135deg, #1c3d5c, #2c5364, #3a7bd5);
+    background: linear-gradient(135deg, #ffecd2, #fcb69f, #ffd1dc);
 }
 
 .love-message {
@@ -108,251 +84,55 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: bold;
     text-align: center;
-    font-family: 'Dancing Script', cursive;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    opacity: 0;
-    animation: fadeInScale 2s forwards, colorChange 5s infinite alternate;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    z-index: 10;
+    color: #4a4a4a;
 }
 
-.sorry {
-    font-size: 2rem;
+.highlight {
+    color: #ff6b6b;
+    font-size: 4rem;
+}
+
+.subtitle {
+    font-size: 1.5rem;
     display: block;
     margin-top: 20px;
-    color: #a0d2eb;
+    color: #4a90e2;
+    font-weight: 500;
 }
 
-@keyframes fadeInScale {
-    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-}
-
-@keyframes colorChange {
-    0% { color: #4a90e2; }
-    25% { color: #64b5f6; }
-    50% { color: #81d4fa; }
-    75% { color: #4fc3f7; }
-    100% { color: #29b6f6; }
-}
-
-#flowers-container, #stars-container, #butterflies-container {
+.floating-image {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.flower, .star, .butterfly {
-    position: absolute;
+    width: 20px;
+    height: auto;
     opacity: 0;
-    animation: float 6s infinite ease-in-out, fadeIn 1s forwards;
+    animation: 
+        bounce 10s infinite ease-in-out, 
+        fadeIn 1s forwards, 
+        rotate 10s infinite linear,
+        moveHorizontal 15s infinite alternate;
 }
 
-.flower::before, .flower::after {
-    content: '';
-    position: absolute;
-    background: #81d4fa;
-    border-radius: 50%;
-}
-
-.flower::before {
-    width: 20px;
-    height: 20px;
-}
-
-.flower::after {
-    width: 10px;
-    height: 10px;
-    background: #ffd54f;
-    top: 5px;
-    left: 5px;
-}
-
-.star {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 20px solid #ffd54f;
-    transform: rotate(35deg);
-}
-
-.star::before, .star::after {
-    content: '';
-    position: absolute;
-    border-left: 3px solid transparent;
-    border-right: 3px solid transparent;
-    border-bottom: 7px solid #ffd54f;
-}
-
-.star::before {
-    transform: rotate(-35deg);
-    top: -12px;
-    left: -7px;
-}
-
-.star::after {
-    transform: rotate(-70deg);
-    top: 0;
-    left: -10px;
-}
-
-.butterfly {
-    width: 20px;
-    height: 20px;
-    background: #64b5f6;
-    border-radius: 50% 50% 0 0;
-    transform-origin: bottom center;
-    animation: flutter 0.5s infinite alternate, float 10s infinite ease-in-out, fadeIn 1s forwards;
-}
-
-.butterfly::before,
-.butterfly::after {
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background: #64b5f6;
-    border-radius: 50% 50% 0 50%;
-    top: -5px;
-}
-
-.butterfly::before {
-    left: -10px;
-    transform: rotate(-30deg);
-}
-
-.butterfly::after {
-    right: -10px;
-    transform: rotate(30deg);
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(10deg); }
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(calc(-50vh + 100%)); }
 }
 
 @keyframes fadeIn {
     from { opacity: 0; }
-    to { opacity: 1; }
+    to { opacity: 0.7; }
 }
 
-@keyframes flutter {
-    0% { transform: scaleX(1); }
-    100% { transform: scaleX(1.1); }
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-.mini-flower {
-    position: absolute;
-    bottom: 10px;
-    width: 30px;
-    height: 45px;
-}
-
-.mini-flower .petal {
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background-color: #48cae4;
-    bottom: 15px;
-    left: 4px;
-}
-
-.mini-flower .center {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #ffd700;
-    bottom: 22px;
-    left: 11px;
-    z-index: 2;
-}
-
-.mini-flower .stem {
-    position: absolute;
-    width: 3px;
-    height: 22px;
-    background-color: #2a9d8f;
-    bottom: 0;
-    left: 13px;
-}
-
-.mini-flower .leaf {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background-color: #2a9d8f;
-    border-radius: 0 50% 50% 50%;
-    transform: rotate(45deg);
-    bottom: 12px;
-    right: 6px;
-}
-#flowers-container {
-    position: absolute;
-    width: 100%;
-    height: 30%; /* Increase the height to cover more of the bottom */
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-}
-
-.mini-flower {
-    position: absolute;
-    width: 30px;
-    height: 45px;
-    transform-origin: bottom center;
-    animation: sway 3s infinite ease-in-out;
-}
-
-@keyframes sway {
-    0%, 100% { transform: rotate(-5deg); }
-    50% { transform: rotate(5deg); }
-}
-
-.mini-flower .petal {
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    bottom: 15px;
-    left: 4px;
-}
-
-.mini-flower:nth-child(3n) .petal { background-color: #48cae4; }
-.mini-flower:nth-child(3n+1) .petal { background-color: #ff9a8c; }
-.mini-flower:nth-child(3n+2) .petal { background-color: #a0c4ff; }
-
-.mini-flower .center {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #ffd700;
-    bottom: 22px;
-    left: 11px;
-    z-index: 2;
-}
-
-.mini-flower .stem {
-    position: absolute;
-    width: 3px;
-    height: 22px;
-    background-color: #2a9d8f;
-    bottom: 0;
-    left: 13px;
-}
-
-.mini-flower .leaf {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background-color: #2a9d8f;
-    border-radius: 0 50% 50% 50%;
-    transform: rotate(45deg);
-    bottom: 12px;
-    right: 6px;
+@keyframes moveHorizontal {
+    0% { margin-left: -10%; }
+    100% { margin-left: 10%; }
 }
