@@ -1,3 +1,25 @@
+const imageSources = [
+    'arrow-heart.png',
+    'basket-picnic.png',
+    'book-heart.png',
+    'candies.png',
+    'champaigne-bottle.png',
+    'champaigne-glasses.png',
+    'cloud-angel@2x.png',
+    'donut@2x.png',
+    'gift-ornament@2x.png',
+    'flower@2x.png',
+    'laptop-heart@2x.png',
+    'lock-heart@2x.png',
+    'love-heart@2x.png',
+    'mobile-heart@2x.png',
+    'muffin@2x.png',
+    'note-heart@2x.png',
+    'plant-heart@2x.png',
+    'plant-rose@2x.png',
+    'shopping-bag-heart@2x.png'
+];
+
 function checkWord() {
     const inputWord = document.getElementById('input-word').value;
     const correctWord = 'pumpkin';
@@ -12,70 +34,22 @@ function checkWord() {
 }
 
 function startPartyMode() {
-    const loveMessage = document.querySelector('.love-message');
-    loveMessage.style.display = 'block';
-    addFlowersStarsAndButterflies();
+    addImages();
 }
 
-function addFlowersStarsAndButterflies() {
-    const flowersContainer = document.getElementById('flowers-container');
-    const starsContainer = document.getElementById('stars-container');
-    const butterfliesContainer = document.getElementById('butterflies-container');
+function addImages() {
+    const imagesContainer = document.getElementById('images-container');
     
-    // Add stars and butterflies
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 200; i++) {
         setTimeout(() => {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 20 + '%';
-            star.style.animationDelay = Math.random() * 2 + 's';
-            starsContainer.appendChild(star);
-
-            if (i % 4 === 0) {
-                const butterfly = document.createElement('div');
-                butterfly.className = 'butterfly';
-                butterfly.style.left = Math.random() * 100 + '%';
-                butterfly.style.top = Math.random() * 60 + 20 + '%';
-                butterfly.style.animationDelay = Math.random() * 2 + 's';
-                butterfliesContainer.appendChild(butterfly);
-            }
-        }, i * 100);
-    }
-
-    // Add mini flowers to create a field
-    const flowerCount = Math.ceil((window.innerWidth * 30) / 100); // Adjust density as needed
-    for (let i = 0; i < flowerCount; i++) {
-        const miniFlower = document.createElement('div');
-        miniFlower.className = 'mini-flower';
-        
-        // Randomize position within the container
-        miniFlower.style.left = Math.random() * 100 + '%';
-        miniFlower.style.bottom = Math.random() * 20 + '%';
-        
-        // Randomize size slightly
-        const scale = 0.8 + Math.random() * 0.4; // 0.8 to 1.2
-        miniFlower.style.transform = `scale(${scale})`;
-        
-        // Randomize animation delay
-        miniFlower.style.animationDelay = Math.random() * 2 + 's';
-
-        const petal = document.createElement('div');
-        petal.className = 'petal';
-        miniFlower.appendChild(petal);
-
-        const center = document.createElement('div');
-        center.className = 'center';
-        miniFlower.appendChild(center);
-
-        const stem = document.createElement('div');
-        stem.className = 'stem';
-        miniFlower.appendChild(stem);
-
-        const leaf = document.createElement('div');
-        leaf.className = 'leaf';
-        miniFlower.appendChild(leaf);
-
-        flowersContainer.appendChild(miniFlower);
+            const img = document.createElement('img');
+            img.src = imageSources[Math.floor(Math.random() * imageSources.length)];
+            img.className = 'floating-image';
+            img.style.left = Math.random() * 100 + '%';
+            img.style.top = Math.random() * 100 + '%';
+            img.style.animationDelay = Math.random() * 5 + 's';
+            img.style.animationDuration = (Math.random() * 10 + 5) + 's';
+            imagesContainer.appendChild(img);
+        }, i * 20);
     }
 }
